@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd https://maven.apache.org/xsd/settings-1.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.7.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.autogen</groupId>
+	<artifactId>autogen</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>autogen</name>
+	<description>Demo project for AutoGen</description>
+	<packaging>jar</packaging>
+	<properties>
+		<!--<java.version>12</java.version>-->
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-gcp-starters -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-gcp-starters</artifactId>
+			<version>1.1.2.RELEASE</version>
+			<type>pom</type>
+		</dependency>
+
+
+
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<!--<plugin>
+				&lt;!&ndash;<properties>
+					<app.deploy.projectId>autogen</app.deploy.projectId>
+					<deploy.projectId>autogen</deploy.projectId>
+				</properties>&ndash;&gt;
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<deploy.projectId>autogen</deploy.projectId>
+					<deploy.version>1.0</deploy.version>
+					<app.deploy.projectId>autogen</app.deploy.projectId>
+				</configuration>
+			</plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>appengine-maven-plugin</artifactId>
+                <version>2.0.0</version>
+            </plugin>-->
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+				<version>2.0.0</version>
+				<configuration>
+					<deploy.projectId>abhay-249212</deploy.projectId>
+					<deploy.version>01</deploy.version>
+					<cloudSdkHome>C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk</cloudSdkHome>
+					<cloudSdkVersion>257.0.0</cloudSdkVersion>
+					<!-- <appId>sample-project-vijay</appId> -->
+					<!-- <deployables>
+                     <param>target/Services-0.0.1/WEB-INF/appengine-web.xml</param>
+                    </deployables> -->
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+
+	<!--<profiles>
+		<profile>
+
+			<id>cloud-gcp</id>
+			<properties>
+				<app.deploy.projectId>autogen</app.deploy.projectId>
+				<app.deploy.version>1.0</app.deploy.version>
+			</properties>
+
+			<dependencies>
+				<dependency>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-gcp-starter</artifactId>
+					<version>1.1.2.RELEASE</version>
+				</dependency>
+			</dependencies>
+
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>com.google.cloud.tools</groupId>
+							<artifactId>appengine-maven-plugin</artifactId>
+							<version>2.0.0-rc2</version>
+							<configuration>
+								<deploy.projectId>auto-gen</deploy.projectId>
+								<deploy.version>03</deploy.version>
+								<cloudSdkHome>/Users/a1345875/Documents/softwares/google-cloud-sdk</cloudSdkHome>
+								<cloudSdkVersion>220.0.0</cloudSdkVersion>
+								&lt;!&ndash; <appId>sample-project-vijay</appId> &ndash;&gt;
+								&lt;!&ndash; <deployables>
+                                 <param>target/Services-0.0.1/WEB-INF/appengine-web.xml</param>
+                                </deployables> &ndash;&gt;
+							</configuration>
+						</plugin>
+						&lt;!&ndash;<plugin>
+							&lt;!&ndash;<properties>
+								<app.deploy.projectId>autogen</app.deploy.projectId>
+								<deploy.projectId>autogen</deploy.projectId>
+								<deploy.version>1.0</deploy.version>
+							</properties>&ndash;&gt;
+							<groupId>com.google.cloud.tools</groupId>
+							<artifactId>appengine-maven-plugin</artifactId>
+							<version>2.0.0</version>
+							<configuration>
+								<deploy.projectId>autogen</deploy.projectId>
+								<deploy.version>1.0</deploy.version>
+								<app.deploy.projectId>autogen</app.deploy.projectId>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>com.google.appengine</groupId>
+							<artifactId>appengine-maven-plugin</artifactId>
+							<version>2.0.0</version>
+							<configuration>
+								<deploy.projectId>autogen</deploy.projectId>
+								<deploy.version>1.0</deploy.version>
+								<app.deploy.projectId>autogen</app.deploy.projectId>
+							</configuration>
+						</plugin>&ndash;&gt;
+					</plugins>
+				</pluginManagement>
+			</build>
+
+		</profile>
+	</profiles>-->
+
+</project>
